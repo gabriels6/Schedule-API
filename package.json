@@ -12,6 +12,6 @@
   },
   "scripts": {
     "test-code": "nodemon src/index.js",
-    "start": "yarn node src/index.js"
+    "start": "node src/index.js"
   }
 }
