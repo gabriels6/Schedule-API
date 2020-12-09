@@ -6,7 +6,7 @@ require('dotenv').config({path: __dirname + '/.env'});
 const app = express();
 
 const config = {
-    url:'mongodb+srv://db_test_user:hlm2543V@cluster-test.q4jsk.gcp.mongodb.net/test_data?retryWrites=true&w=majority'
+    url:'mongodb+srv://'+process.env.user+':'+process.env.pass+'@cluster-test.q4jsk.gcp.mongodb.net/'+process.env.database+'?retryWrites=true&w=majority'
 }
 
 mongoose.connect(config.url,
