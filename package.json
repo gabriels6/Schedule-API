@@ -11,6 +11,7 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "test-code": "nodemon src/index.js"
+    "test-code": "nodemon src/index.js",
+    "start": "node src/index.js"
   }
 }
