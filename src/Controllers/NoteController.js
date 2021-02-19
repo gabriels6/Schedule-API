@@ -7,7 +7,7 @@ module.exports = {
 
         if(typeof params.TOKEN === undefined || params.TOKEN !== process.env.TOKEN) return response.json({error:'Token inválido'});
 
-        const Notes = await NoteModel.find({Author_Id:params.id});
+        const Notes = await NoteModel.find({Author_Id:params.id}).sort({Date:1});
 
         return response.json(Notes);
     },
