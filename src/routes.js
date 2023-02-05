@@ -14,6 +14,7 @@ routes.post('/User/Create',UserController.AddUser);
 
 routes.get('/Notes',NoteController.GetNotes);
 routes.post('/Notes',NoteController.AddNote);
+routes.put('/Notes',NoteController.UpdateNote);
 routes.delete('/Note',NoteController.RemoveNote);
 
 routes.get('/DR',DailyReviewController.GetReview);

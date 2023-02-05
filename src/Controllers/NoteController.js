@@ -13,15 +13,29 @@ module.exports = {
     },
 
     async AddNote(request,response){
-        const {Author_Id,Title,Content,Date,Urgency} = request.body;
+        const {Author_Id,Title,Content,Date,Urgency, StartTaskTime, EndTaskTime} = request.body;
 
         const Note = await NoteModel.create({
             Author_Id,
             Title,
             Content,
             Date,
-            Urgency
+            Urgency,
+            StartTaskTime: (StartTaskTime || ''),
+            EndTaskTime: (EndTaskTime || '')
         });
+
+        return response.json(Note);
+    },
+
+    async UpdateNote(request, response) {
+        const {_id} = request.body;
+
+        let data = Object.fromEntries(Object.entries(request.body).map((value) => value[1] != null ? [value[0], value[1]] : []));
+
+        const Note = await NoteModel.updateOne(
+            { _id: ObjectID(_id) },
+            data);
 
         return response.json(Note);
     },
